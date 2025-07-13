@@ -36,8 +36,7 @@ describe("Chat application", () => {
         }))
 
         await new Promise<void>((resolve) => {
-            ws2.onmessage = (data) => {
-                console.log(data);
+            ws2.onmessage = ({data}) => {
                 const parsedData = JSON.parse(data);
                 expect(parsedData.type == "chat")
                 expect(parsedData.message == "Hi there")
